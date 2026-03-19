@@ -1,4 +1,4 @@
-name: Build Jekyll Site
+name: Build and Deploy Jekyll Site
 
 on:
   pull_request:
@@ -24,6 +24,9 @@ jobs:
           ruby-version: '3.2.0'
           bundler-cache: true
       
+      - name: Install dependencies
+        run: bundle install
+      
       - name: Build Jekyll site
         run: bundle exec jekyll build
       
@@ -36,3 +39,28 @@ jobs:
             echo "✗ Jekyll build failed - _site directory not created"
             exit 1
           fi
+      
+      - name: Upload artifact for deployment
+        uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: _site/
+          retention-days: 1
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: site
+          path: _site/
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
