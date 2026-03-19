@@ -18,7 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Felix Dusengimana - Software Developer
+title: Felix Dusengimana
+shorthand_title: Felix
 email: info@feldux.com
 description: >- # this means to ignore newlines until "baseurl:"
   A portfolio and blog showcasing my journey in software development, 
@@ -27,9 +28,10 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://felixdusengimana.github.io"
 twitter_username: felix_dusengima
 github_username: felixdusengimana
+avatar: "https://www.feldux.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.0cfd3a90.png&w=128&q=75"
 
 # Build settings
-theme: minima
+theme: jekyll-theme-chirpy
 plugins:
   - jekyll-feed
 

@@ -13,7 +13,7 @@ gem "jekyll"
 gem "webrick"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "minima"
+gem "jekyll-theme-chirpy"
 
 # For GitHub Pages deployment:
 # Uncomment the line below and comment out the jekyll gem above
