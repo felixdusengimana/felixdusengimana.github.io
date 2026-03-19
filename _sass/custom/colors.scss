@@ -1,0 +1,11 @@
+// Custom color palette
+$brand-color: #2a5caa;
+$brand-color-dark: #1a3a7a;
+$accent-color: #ff6b35;
+$light-bg: #f8f9fa;
+$dark-text: #2c3e50;
+
+// Override minima colors
+$grey-color: #5a6c7d;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark: darken($grey-color, 25%);
